@@ -1,0 +1,10 @@
+<div class="container">
+<h2>Booking Information</h2>
+<p>Arrival Date: <%= @booking.start_date %></p>
+<p>Departure Date: <%= @booking.end_date  %></p>
+<p>Total Stay: <%= @booking.qty_hour  %> hours</p>
+<p>Total Cost: <%= @booking.total_cost %> USD</p>
+
+<%= link_to("Edit your booking", edit_booking_path, class: "btn btn-primary") %>
+<%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>

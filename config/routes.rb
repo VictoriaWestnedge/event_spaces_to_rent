@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
     get 'search', on: :collection
   end
-  resources :bookings, only: [:index, :edit, :update, :destroy]
+  resources :bookings, only: [:index, :show, :edit, :update, :destroy]
 
 
 end
