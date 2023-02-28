@@ -1,1 +1,13 @@
+<div class="container">
 <p>SHOW EVENT SPACES</p>
+<p>Event Space Name: <%= @event_space.name %></p>
+<p>Address: <%= @event_space.adress %></p>
+<p>Description: <%= @event_space.description %></p>
+<p>Price Per Hour: <%= @event_space.price_per_hour %></p>
+<p>Minimum Of Time: <%= @event_space.min_hour %></p>
+<br>
+<%= link_to "Booking", new_event_space_booking_path(@event_space) %>
+<br>
+
+<%= link_to "Back", event_spaces_path %>
+</div>
