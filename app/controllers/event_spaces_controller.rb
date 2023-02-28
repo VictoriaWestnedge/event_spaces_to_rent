@@ -1,4 +1,6 @@
 class EventSpacesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :search
+
   def index
     @event_spaces = EventSpace.all
   end
