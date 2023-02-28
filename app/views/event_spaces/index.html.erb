@@ -4,8 +4,9 @@
   <h3>SHOW EVENT SPACES</h3>
   <% @event_spaces.each do |e|%>
     <br>
-    <p>Event Space Name: <%= e.name %></p>
+    <p>Event Space Name: <%= e.name.capitalize %></p>
     <p>Address: <%= e.adress %></p>
+    <p>City: <%= e.city %></p>
     <p>Description: <%= e.description %></p>
     <p>Price Per Hour: <%= e.price_per_hour %></p>
     <p>Minimum Of Time: <%= e.min_hour %></p>
