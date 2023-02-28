@@ -6,6 +6,7 @@ class CreateEventSpaces < ActiveRecord::Migration[7.0]
       t.string :description
       t.integer :price_per_hour
       t.integer :min_hour
+      t.string :city
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_134833) do
     t.string "description"
     t.integer "price_per_hour"
     t.integer "min_hour"
+    t.string "city"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

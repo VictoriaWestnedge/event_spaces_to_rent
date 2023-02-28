@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Events Spaces</h1>
+
+
+<div class="container">
+  <br>
+  <h2>Look at the Events Spaces</h2>
+  <br>
+  <%= form_tag search_event_spaces_path, method: :get do %>
+  <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
+  <%= submit_tag "Search" %>
+
+  <% end %>
+  <% @event_spaces.each do |e|%>
+    <br>
+    <ol>
+    <p>Event Space Name: <%= e.name %></p>
+    <p>Address: <%= e.adress %></p>
+    <p>Description: <%= e.description %></p>
+    <p>Price Per Hour: <%= e.price_per_hour %></p>
+    <p>Minimum Of Time: <%= e.min_hour %></p>
+
+    </ol>
+    <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
+    <br>
+  <% end %>
+</div>

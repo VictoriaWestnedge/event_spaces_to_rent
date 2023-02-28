@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :event_spaces do
     resources :bookings, only: [:new, :create]
+    get 'search', on: :collection
   end
   resources :bookings, only: [:index, :edit, :update, :destroy]
+
 
 end

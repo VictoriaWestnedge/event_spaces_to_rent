@@ -1,1 +1,17 @@
-<p>INDEX EVENT SPACES</p>
+<div class="container">
+  <h1>All The Event Spaces</h1>
+  <br>
+  <h3>SHOW EVENT SPACES</h3>
+  <% @event_spaces.each do |e|%>
+    <br>
+    <p>Event Space Name: <%= e.name.capitalize %></p>
+    <p>Address: <%= e.adress %></p>
+    <p>City: <%= e.city %></p>
+    <p>Description: <%= e.description %></p>
+    <p>Price Per Hour: <%= e.price_per_hour %></p>
+    <p>Minimum Of Time: <%= e.min_hour %></p>
+    <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
+
+    <br>
+  <% end %>
+</div>
