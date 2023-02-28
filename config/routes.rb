@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :event_spaces do
     resources :bookings, only: [:new, :create]
   end
+  resources :bookings, only: [:index, :edit, :update, :destroy]
 
 end
