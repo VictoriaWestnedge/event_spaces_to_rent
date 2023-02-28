@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.event_space_id = @event_space_id
+    @booking.event_space = @event_space
     if @booking.save
       redirect_to event_space_path(@event_space)
     else
