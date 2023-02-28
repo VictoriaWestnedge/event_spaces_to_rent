@@ -13,11 +13,12 @@
   <% @event_spaces.each do |e|%>
     <br>
     <ol>
-    <p>Event Space Name: <%= e.name %></p>
-    <p>Address: <%= e.adress %></p>
-    <p>Description: <%= e.description %></p>
-    <p>Price Per Hour: <%= e.price_per_hour %></p>
-    <p>Minimum Of Time: <%= e.min_hour %></p>
+     <p>Event Space Name: <%= e.name.titleize %></p>
+      <p>Address: <%= e.adress.titleize %></p>
+      <p>City: <%= e.city.titleize %></p>
+      <p>Description: <%= e.description.capitalize %></p>
+      <p>Price Per Hour: <%= e.price_per_hour %></p>
+      <p>Minimum Of Time: <%= e.min_hour %></p>
 
     </ol>
     <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
