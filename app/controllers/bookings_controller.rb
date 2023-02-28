@@ -5,6 +5,9 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def new
     @booking = Booking.new
@@ -14,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.event_space = @event_space
     @booking.user_id = current_user.id
+    @booking.total_cost = @booking.qty_hour * @event_space.price_per_hour
     if @booking.save
       redirect_to bookings_path
     else
@@ -30,6 +34,14 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     redirect_to bookings_path
   end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.event_space = @event_space
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
+  end
+
 
 private
   def set_event_space
