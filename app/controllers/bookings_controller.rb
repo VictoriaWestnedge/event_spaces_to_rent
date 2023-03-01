@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   before_action :set_event_space, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
+    @my_rents = current_user.event_spaces
   end
 
   def show
