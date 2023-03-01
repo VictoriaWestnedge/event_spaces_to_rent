@@ -10,7 +10,7 @@
 <%= link_to "Booking", new_event_space_booking_path(@event_space) %>
 <br>
 
-<%= link_to "Back", event_spaces_path %>
+<%= link_to "Back", root_path %>
 
   <div class=“cards”>
     <h2>My Event Spaces for Rent</h2>
@@ -25,5 +25,4 @@
 <%= cl_image_tag @event_space.photo.key, height: 300, width: 400, crop: :fill %>
 
   </div>
-
 </div>
