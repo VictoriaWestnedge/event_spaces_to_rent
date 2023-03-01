@@ -4,7 +4,7 @@
     <% @event_spaces.each do |e| %>
       <li>
         <p>Event Space Name: <%= e.name.titleize %></p>
-        <p>Address: <%= e.adress.titleize %></p>
+        <p>Address: <%= e.address.titleize %></p>
         <p>City: <%= e.city.titleize %></p>
         <p>Description: <%= e.description.capitalize %></p>
         <p>Price Per Hour: <%= e.price_per_hour %></p>
@@ -22,13 +22,8 @@
       <br>
         <% @my_spaces.each do |space| %>
           <p>Name: <%= space.name %></p>
-          <p>Address: <%= space.adress  %></p>
+          <p>Address: <%= space.address  %></p>
           <p>Price per hour: <%= space.price_per_hour %> USD</p>
           <%= link_to("Make changes to your space", event_space_path(space), class: "btn btn-primary") %>
         <% end %>
   </div>
-
-
-
-
-
