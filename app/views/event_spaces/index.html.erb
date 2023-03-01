@@ -1,18 +1,21 @@
-<div class="container">
-  <h1>Available Event Spaces</h1>
-  <br>
-  <% @event_spaces.each do |e|%>
-    <br>
-    <p>Event Space Name: <%= e.name.capitalize %></p>
-    <p>Address: <%= e.adress %></p>
-    <p>City: <%= e.city %></p>
-    <p>Description: <%= e.description %></p>
-    <p>Price Per Hour: <%= e.price_per_hour %> USD</p>
-    <p>Minimum Of Time: <%= e.min_hour %></p>
-    <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
-
-    <br>
-  <% end %>
+<h1>Search results</h1>
+<% if @event_spaces.any? %>
+  <ul>
+    <% @event_spaces.each do |e| %>
+      <li>
+        <p>Event Space Name: <%= e.name.titleize %></p>
+        <p>Address: <%= e.adress.titleize %></p>
+        <p>City: <%= e.city.titleize %></p>
+        <p>Description: <%= e.description.capitalize %></p>
+        <p>Price Per Hour: <%= e.price_per_hour %></p>
+        <p>Minimum Of Time: <%= e.min_hour %></p>
+      </li>
+      <%= link_to "Booking", new_event_space_booking_path(e) %>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are not any Spaces in this city.</p>
+<% end %>
 
   <div class=“cards”>
     <h2>My Event Spaces for Rent</h2>
@@ -23,5 +26,9 @@
           <p>Price per hour: <%= space.price_per_hour %> USD</p>
           <%= link_to("Make changes to your space", event_space_path(space), class: "btn btn-primary") %>
         <% end %>
-
   </div>
+
+
+
+
+
