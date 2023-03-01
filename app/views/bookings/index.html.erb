@@ -7,9 +7,9 @@
     <h2>Reservations</h2>
     <% @bookings.each do |booking| %>
       <ul>
-      <li> From <%= booking.start_date %> To: <%= booking.end_date %></li>
-      <li> Number of Hours: <%= booking.qty_hour %> </li>
-      <li> Total Cost: <%= booking.total_cost %> </li>
+        <li> From <%= booking.start_date %> To: <%= booking.end_date %></li>
+        <li> Number of Hours: <%= booking.qty_hour %> </li>
+        <li> Total Cost: <%= booking.total_cost %> </li>
       </ul>
       <%= link_to("More information", booking_path(booking), class: "btn btn-primary") %>
       <%# <%= link_to("Edit your booking", edit_booking_path(booking), class: "btn btn-primary") %>
@@ -17,23 +17,23 @@
     <%# <%= link_to "Further information", list_path(list), class: "btn btn-link"%>
   </div>
 
-  <div class=“cards”>
-      <h2>My Event Spaces</h2>
-          <ul>
-          <br>
-      <% @my_rents.each do |space| %>
-          <% space.bookings.each do |rent| %>
-          <br>
-              <li>Start Date <%= rent.start_date %></li>
-              <li>End Date <%= rent.end_date  %></li>
-              <li>Number of Hours <%= rent.qty_hour %></li>
-              <li>Total Cost <%= rent.total_cost %></li>
-              <li>User <%= rent.user.email %></li>
-              <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
-              <br>
-          <% end %>
-      <% end %>
-          </ul>
+<br>
 
+  <div class=“cards”>
+    <h2>My Rent Evented Spaces</h2>
+    <% @my_rents.each do |space| %>
+      <% space.bookings.each do |rent| %>
+        <br>
+        <ul>
+          <li>Start Date <%= rent.start_date %></li>
+          <li>End Date <%= rent.end_date  %></li>
+          <li>Number of Hours <%= rent.qty_hour %></li>
+          <li>Total Cost <%= rent.total_cost %></li>
+          <li>User <%= rent.user.email %></li>
+        </ul>
+        <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
+        <br>
+      <% end %>
+    <% end %>
   </div>
 </div>
