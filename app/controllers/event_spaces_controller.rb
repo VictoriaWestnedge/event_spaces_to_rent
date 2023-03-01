@@ -3,6 +3,7 @@ class EventSpacesController < ApplicationController
 
   def index
     @event_spaces = EventSpace.all
+    @my_spaces = EventSpace.where(user: current_user)
   end
 
   def show
