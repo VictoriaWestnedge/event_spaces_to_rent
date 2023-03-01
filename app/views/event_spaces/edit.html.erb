@@ -1,0 +1,12 @@
+<div class="container">
+<h2> Edit Your Rental Space </h2>
+<%= simple_form_for @event_space  do |f| %>
+<%= f.input :name %>
+<%= f.input :adress %>
+<%= f.input :description %>
+<%= f.input :price_per_hour %>
+<%= f.input :min_hour %>
+<%= f.input :city %>
+<%= f.input :photo, as: :file %>
+<%= f.submit %>
+<% end %>
