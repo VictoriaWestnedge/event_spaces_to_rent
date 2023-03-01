@@ -8,8 +8,8 @@
   <%= form_tag search_event_spaces_path, method: :get do %>
   <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
   <%= submit_tag "Search" %>
-
   <% end %>
+
   <% @event_spaces.each do |e|%>
     <br>
     <ol>
