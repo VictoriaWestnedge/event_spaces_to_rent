@@ -29,9 +29,11 @@
               <li>Number of Hours <%= rent.qty_hour %></li>
               <li>Total Cost <%= rent.total_cost %></li>
               <li>User <%= rent.user.email %></li>
+              <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
+              <br>
           <% end %>
       <% end %>
           </ul>
-      <%# <%= link_to “Further information”, list_path(list), class: “btn btn-link”%>
+
   </div>
 </div>
