@@ -17,17 +17,21 @@
     <%# <%= link_to "Further information", list_path(list), class: "btn btn-link"%>
   </div>
 
-  <div class="cards">
-    <h2>My Spaces Events</h2>
-    <% @my_rents.each do |rent| %>
-      <ul>
-      <li> From <%= rent.start_date %> To: <%= rent.end_date %></li>
-      <li> Number of Hours: <%= rent.qty_hour %> </li>
-      <li> Total Cost: <%= rent.total_cost %> </li>
-      </ul>
-      <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
-      <%# <%= link_to("Edit your booking", edit_booking_path(booking), class: "btn btn-primary") %>
-    <% end %>
-    <%# <%= link_to "Further information", list_path(list), class: "btn btn-link"%>
+  <div class=“cards”>
+      <h2>My Spaces Events</h2>
+          <ul>
+          <br>
+      <% @my_rents.each do |space| %>
+          <% space.bookings.each do |rent| %>
+          <br>
+              <li>Start Date <%= rent.start_date %></li>
+              <li>End Date <%= rent.end_date  %></li>
+              <li>Number of Hours <%= rent.qty_hour %></li>
+              <li>Total Cost <%= rent.total_cost %></li>
+              <li>User <%= rent.user.email %></li>
+          <% end %>
+      <% end %>
+          </ul>
+      <%# <%= link_to “Further information”, list_path(list), class: “btn btn-link”%>
   </div>
 </div>

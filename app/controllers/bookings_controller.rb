@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user: current_user)
-    @my_rents = current_user.event_spaces
+    @my_rents = EventSpace.where(user: current_user)
   end
 
   def show
