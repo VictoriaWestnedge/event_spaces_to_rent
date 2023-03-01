@@ -16,19 +16,3 @@
 <% else %>
   <p>There are not any Spaces in this city.</p>
 <% end %>
-
-  <div class=“cards”>
-    <h2>My Event Spaces for Rent</h2>
-      <br>
-        <% @my_spaces.each do |space| %>
-          <p>Name: <%= space.name %></p>
-          <p>Address: <%= space.adress  %></p>
-          <p>Price per hour: <%= space.price_per_hour %> USD</p>
-          <%= link_to("Make changes to your space", event_space_path(space), class: "btn btn-primary") %>
-        <% end %>
-  </div>
-
-
-
-
-
