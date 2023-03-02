@@ -1,11 +1,13 @@
 <div class="container">
 <h2>Booking Information</h2>
+<div class="card_booking">
+<%= cl_image_tag @booking.event_space.photo.key %>
 <p>Arrival Date: <%= @booking.start_date %></p>
 <p>Departure Date: <%= @booking.end_date  %></p>
 <p>Total Stay: <%= @booking.qty_hour  %> hours</p>
 <p>Total Cost: <%= @booking.total_cost %> USD</p>
-
-<%= link_to("Edit your booking", edit_booking_path, class: "btn btn-primary") %>
-<%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>
+<%= link_to("Edit your booking", edit_booking_path, class: "btn-success") %>
+<%= link_to "Cancel your booking", booking_path(@booking), class: "btn-back", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 
 </div>
