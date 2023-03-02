@@ -12,7 +12,8 @@ class EventSpacesController < ApplicationController
       {
         lat: eve_esp.latitude,
         lng: eve_esp.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {eve_esp: eve_esp})
+        info_window_html: render_to_string(partial: "info_window", locals: {eve_esp: eve_esp}),
+        marker_html: render_to_string(partial: "marker", locals: {eve_esp: eve_esp})
       }
     end
   end
@@ -25,7 +26,8 @@ class EventSpacesController < ApplicationController
       [{
         lat: @event_space.latitude,
         lng: @event_space.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {eve_esp: @event_space})
+        info_window_html: render_to_string(partial: "info_window", locals: {eve_esp: @event_space}),
+        marker_html: render_to_string(partial: "marker", locals: {eve_esp: @event_space})
       }]
   end
 
