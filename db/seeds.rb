@@ -5,13 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require "open-uri"
+
+file1 = URI.open("https://weddingsbythebreakers.com/wp-content/uploads/2017/12/001.jpg")
+file2 = URI.open("https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600__340.jpg")
+
   puts "Creating User"
   user_1 = User.create!(email:"fernando@gmail.com", password:"123456")
   user_2 = User.create!(email:"santiago@gmail.com", password:"987654")
+  user_3 = User.create!(email:"victoria@gmail.com", password:"123456")
 
   puts "Creating Event Space"
-  event_space_1 = EventSpace.create!(name:"events room traji", address:"santiago de chile", description:"beautiful room for wedding", price_per_hour:5, min_hour:3, user:user_1, city:"Santiago de Chile")
-  event_space_2 = EventSpace.create!(name:"events room numar", address:"rubie des", description:"house", price_per_hour:7, min_hour:4, user:user_2, city:"Iquique")
+  event_space_1 = EventSpace.new(name:"events room traji", address:"santiago de chile", description:"beautiful room for wedding", price_per_hour:5, min_hour:3, user:user_1, city:"Santiago de Chile")
+  event_space_1.photo.attach(io: file1, filename: "nes.jpg", content_type: "image/jpg")
+  event_space_1.save
+  event_space_2 = EventSpace.new(name:"events room numar", address:"rubie des", description:"house", price_per_hour:7, min_hour:4, user:user_2, city:"Iquique")
+  event_space_2.photo.attach(io: file2, filename: "nes2.jpg", content_type: "image/jpg")
+  event_space_2.save
 
   puts "Creating Booking"
   Booking.create!(user:user_2, event_space:event_space_2, start_date:"04-april-2023", end_date:"5-april-2023", qty_hour:24, total_cost:500)

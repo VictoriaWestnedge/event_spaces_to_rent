@@ -1,9 +1,9 @@
-<h1>Events Spaces</h1>
+<h1>Event Spaces</h1>
 
 
 <div class="container">
   <br>
-  <h2>Look at the Events Spaces</h2>
+  <h2>Look at our Event Spaces</h2>
   <br>
   <%= form_tag event_spaces_path, method: :get do %>
   <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
@@ -17,8 +17,8 @@
       <p>Address: <%= e.address.titleize %></p>
       <p>City: <%= e.city.titleize %></p>
       <p>Description: <%= e.description.capitalize %></p>
-      <p>Price Per Hour: <%= e.price_per_hour %></p>
-      <p>Minimum Of Time: <%= e.min_hour %></p>
+      <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
+      <p>Minimum Rental Hours: <%= e.min_hour %></p>
 
     </ol>
     <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
