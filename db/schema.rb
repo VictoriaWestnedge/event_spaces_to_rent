@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_185010) do
 
   create_table "event_spaces", force: :cascade do |t|
     t.string "name"
-    t.string "address"
+    t.string "adress"
     t.string "description"
     t.integer "price_per_hour"
     t.integer "min_hour"

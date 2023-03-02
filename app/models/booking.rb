@@ -1,9 +1,9 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :event_space
-  # validates :start_date, :end_date, :qty_hour, presence: true
-  # validate :start_date_after_today
-  # validate :end_date_after_start_date
+  validates :start_date, :end_date, :qty_hour, presence: true
+  validate :start_date_after_today
+  validate :end_date_after_start_date
 
   private
 

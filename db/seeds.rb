@@ -17,10 +17,10 @@ file2 = URI.open("https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600__
   user_3 = User.create!(email:"victoria@gmail.com", password:"123456")
 
   puts "Creating Event Space"
-  event_space_1 = EventSpace.new(name:"events room traji", address:"Av. Américo Vespucio 399, 9250000 Maipú", description:"beautiful room for wedding", price_per_hour:5, min_hour:3, user:user_1, city:"Santiago de Chile")
+  event_space_1 = EventSpace.new(name:"events room traji", adress:"Av. Américo Vespucio 399, 9250000 Maipú", description:"beautiful room for wedding", price_per_hour:5, min_hour:3, user:user_1, city:"Santiago de Chile")
   event_space_1.photo.attach(io: file1, filename: "nes.jpg", content_type: "image/jpg")
   event_space_1.save
-  event_space_2 = EventSpace.new(name:"events room numar", address:"Av. Américo Vespucio 399, 9250000 Maipú", description:"house", price_per_hour:7, min_hour:4, user:user_2, city:"Santiago de Chile")
+  event_space_2 = EventSpace.new(name:"events room numar", adress:"Av. El Parrón 999, La Cisterna, Región Metropolitana", description:"house", price_per_hour:7, min_hour:4, user:user_2, city:"Santiago de Chile")
   event_space_2.photo.attach(io: file2, filename: "nes2.jpg", content_type: "image/jpg")
   event_space_2.save
 
