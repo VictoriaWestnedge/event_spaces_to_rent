@@ -10,7 +10,7 @@
 }
 
 .btn-success:hover {
-  background: #61a5a0;
+  background: #538a87;
   color: white;
 }
 
@@ -28,4 +28,13 @@
 .btn-back:hover {
   background: rgb(106, 106, 106);
   color: white;
+}
+
+
+.btn-primary{
+  margin-top: 10px ;
+}
+.btn-primary:hover{
+  background: rgb(3, 60, 145);
+  transition: 1s;
 }
