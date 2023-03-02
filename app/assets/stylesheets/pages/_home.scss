@@ -6,6 +6,7 @@
 }
 
 .card-category {
+  margin-top: 20px;
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -20,4 +21,20 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-venues {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  width: 300px;
+}
 
+.lookcity{
+text-align: center;
+}
+
+h2{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 50px;
+}
