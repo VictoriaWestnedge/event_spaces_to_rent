@@ -10,5 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/card";
-@import "components/button";
+
+body{
+  background-color: #f7f5fbe2;
+}
