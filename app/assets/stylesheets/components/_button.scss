@@ -1,0 +1,31 @@
+.btn-success {
+  background: #61a5a0;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
+  width: 150px;
+}
+
+.btn-success:hover {
+  background: #61a5a0;
+  color: white;
+}
+
+.btn-back {
+  background: grey;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
+  width: 150px;
+}
+
+.btn-back:hover {
+  background: rgb(106, 106, 106);
+  color: white;
+}
