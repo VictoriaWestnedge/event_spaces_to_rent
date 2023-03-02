@@ -26,18 +26,18 @@
   <% @event_spaces.each do |e|%>
     <br>
       <ol>
-        <div class="card-venues">
-
-          <p>Venue Name: <%= e.name.titleize %></p>
-          <p>Address: <%= e.adress.titleize %></p>
-          <p>City: <%= e.city.titleize %></p>
-          <p>Description: <%= e.description.capitalize %></p>
+        <div class="card">
+        <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-infos">
+          <h5><%= e.name.titleize %></h5>
+          <p><%= e.city.titleize %></p>
+          <p><%= e.description.capitalize %></p>
           <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
-          <p>Minimum Rental Time: <%= e.min_hour %> hours</p>
-          <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
+          <%= link_to "More Details", event_space_path(e), class: "btn-success" %>
+        </div>
       </ol>
     <br>
   <% end %>
-  </div>
+        </div>
 
 </div>
