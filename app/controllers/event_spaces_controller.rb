@@ -24,7 +24,7 @@ class EventSpacesController < ApplicationController
     @marker = #mapa
       [{
         lat: @event_space.latitude,
-        lng: @event_space.longitude
+        lng: @event_space.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {eve_esp: @event_space})
       }]
   end
