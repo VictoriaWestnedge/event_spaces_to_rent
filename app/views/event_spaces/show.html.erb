@@ -1,5 +1,6 @@
 <div class="container">
-<h2>Event Spaces to Rent </h2>
+<h2>Available Venues </h2>
+<div class="card">
 <p>Event Space Name: <%= @event_space.name %></p>
 <p>Address: <%= @event_space.adress %></p>
 <p>City: <%= @event_space.city %></p>
@@ -7,7 +8,7 @@
 <p>Price Per Hour: <%= @event_space.price_per_hour %> USD</p>
 <p>Minimum Hours: <%= @event_space.min_hour %></p>
 <br>
-<%= link_to "Booking", new_event_space_booking_path(@event_space) %>
+<%= link_to "Book here", new_event_space_booking_path(@event_space), class: "btn-success" %>
 <br>
 
 <div
@@ -18,18 +19,27 @@
 
 ></div>
 
-<%= link_to "Back", root_path %>
 
-  <div class=“cards”>
-    <h2>My Event Spaces</h2>
-      <br>
-        <% @my_spaces.each do |space| %>
-          <p>Name: <%= space.name %></p>
-          <p>Address: <%= space.adress  %></p>
-          <p>Price per hour: <%= space.price_per_hour %> USD</p>
-          <%= link_to("Make changes to your space", edit_event_space_path(space), class: "btn btn-primary") %>
-          <%= cl_image_tag @event_space.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <%= link_to("Add new event space", new_event_space_path, class: "btn btn-primary") %>
-  </div>
+<%= link_to "Back", root_path, class: "btn-back" %>
+</div>
+
+
+    <br>
+      <h2>My Venues for Hire</h2>
+      <div>
+      <%= link_to("Add new venue", new_event_space_path, class: "btn-success") %>
+      </div>
+      <% @my_spaces.each do |space| %>
+      <div class="card">
+      <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-infos">
+      <div>
+        <p>Name: <%= space.name %></p>
+        <p>Address: <%= space.adress  %></p>
+        <p>Price per hour: <%= space.price_per_hour %> USD</p>
+         </div>
+        <%= link_to("Edit your venue", edit_event_space_path(space), class: "btn-success") %>
+      <% end %>
+      </div>
+      </div>
 </div>

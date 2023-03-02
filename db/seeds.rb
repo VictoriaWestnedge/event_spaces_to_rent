@@ -13,7 +13,7 @@ file2 = URI.open("https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600__
 
   puts "Creating User"
   user_1 = User.create!(email:"fernando@gmail.com", password:"123456")
-  user_2 = User.create!(email:"santiago@gmail.com", password:"987654")
+  user_2 = User.create!(email:"nica@gmail.com", password:"123456")
   user_3 = User.create!(email:"victoria@gmail.com", password:"123456")
 
   puts "Creating Event Space"
