@@ -3,6 +3,7 @@ class EventSpacesController < ApplicationController
 
   def index
     if params[:city].present?
+      slq_city
       @event_spaces = EventSpace.where("(city) ILIKE ?", "%#{params[:city]}%")
     else
       @event_spaces = EventSpace.all
