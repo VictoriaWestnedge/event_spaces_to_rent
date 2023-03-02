@@ -1,27 +1,43 @@
-<h1>Event Spaces</h1>
-
-
 <div class="container">
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.hayesmansion.com/site/assets/files/4852/hayes_mansion_wedding.1800x1100.jpeg)">
+    Weddings
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.squarespace-cdn.com/content/v1/60766dbd0e15184546d38ae1/1618374153347-KOKXXJGW21REJJEJWE84/GM5B0302.JPG?format=1000w)">
+    Birthdays
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://americanpavilion.com/wp-content/uploads/2018/04/Corporate-Event.jpg)">
+    Corporate Events
+  </div>
+</div>
+
+
   <br>
-  <h2>Look at our Event Spaces</h2>
+  <h2>Look at our Venues</h2>
   <br>
   <%= form_tag event_spaces_path, method: :get do %>
   <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
   <%= submit_tag "Search" %>
   <% end %>
 
+
   <% @event_spaces.each do |e|%>
     <br>
-    <ol>
-     <p>Event Space Name: <%= e.name.titleize %></p>
-      <p>Address: <%= e.adress.titleize %></p>
-      <p>City: <%= e.city.titleize %></p>
-      <p>Description: <%= e.description.capitalize %></p>
-      <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
-      <p>Minimum Rental Hours: <%= e.min_hour %></p>
+      <ol>
+        <div class="card-venues">
 
-    </ol>
-    <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
+          <p>Venue Name: <%= e.name.titleize %></p>
+          <p>Address: <%= e.adress.titleize %></p>
+          <p>City: <%= e.city.titleize %></p>
+          <p>Description: <%= e.description.capitalize %></p>
+          <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
+          <p>Minimum Rental Time: <%= e.min_hour %> hours</p>
+          <%= link_to "More Details", event_space_path(e), class: "btn btn-primary" %>
+      </ol>
     <br>
   <% end %>
+  </div>
+
 </div>
