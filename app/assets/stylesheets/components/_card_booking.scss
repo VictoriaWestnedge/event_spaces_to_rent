@@ -1,0 +1,30 @@
+.card_booking {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  width: 800px;
+  border-radius: 10px;
+}
+
+.card_booking > img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  display: flex;
+}
+
+.card_booking .card_booking-infos {
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  // align-items: flex-end;
+  // position: relative;
+}
+
+.card_booking_show {
+  display: flex;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  border-radius: 10px;
+}
