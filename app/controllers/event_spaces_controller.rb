@@ -2,7 +2,18 @@ class EventSpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: :search
 
   def index
-    @event_spaces = EventSpace.where("lower(city) LIKE ?", "%#{params[:city].downcase}%")
+    if params[:city].present?
+      @event_spaces = EventSpace.where("(city) ILIKE ?", "%#{params[:city]}%")
+    else
+      @event_spaces = EventSpace.all
+    end
+
+    @markers = @event_spaces.geocoded.map do |eve_esp|
+      {
+        lat: eve_esp.latitude,
+        lng: eve_esp.longitude
+      }
+    end
   end
 
   def show
@@ -36,6 +47,6 @@ class EventSpacesController < ApplicationController
 
   private
   def event_space_params
-    params.require(:event_space).permit(:name, :adress, :description, :price_per_hour, :min_hour, :city, :photo)
+    params.require(:event_space).permit(:name, :address, :description, :price_per_hour, :min_hour, :city, :photo)
   end
 end
