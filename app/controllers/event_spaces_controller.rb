@@ -2,7 +2,11 @@ class EventSpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: :search
 
   def index
-    @event_spaces = EventSpace.where("lower(city) LIKE ?", "%#{params[:city].downcase}%")
+    if params[:query].present?
+      @event_spaces =  EventSpace.search_by_city_and_name_and_description(params[:query])
+    else
+      @event_spaces =  EventSpace.all
+    end
   end
 
   def show
