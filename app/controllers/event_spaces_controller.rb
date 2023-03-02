@@ -2,11 +2,11 @@ class EventSpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: :search
 
   def index
-    if params[:city].present?
-      slq_city
-      @event_spaces = EventSpace.where("(city) ILIKE ?", "%#{params[:city]}%")
+<<<<<<< HEAD
+    if params[:query].present?
+      @event_spaces =  EventSpace.search_by_city_and_name_and_description(params[:query])
     else
-      @event_spaces = EventSpace.all
+      @event_spaces =  EventSpace.all
     end
 
     @markers = @event_spaces.geocoded.map do |eve_esp|
@@ -14,7 +14,6 @@ class EventSpacesController < ApplicationController
         lat: eve_esp.latitude,
         lng: eve_esp.longitude
       }
-    end
   end
 
   def show
