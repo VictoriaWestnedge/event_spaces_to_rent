@@ -17,9 +17,11 @@
   <br>
   <h2>Look at our Venues</h2>
   <br>
-  <%= form_tag event_spaces_path, method: :get do %>
-  <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
-  <%= submit_tag "Search" %>
+  <div class="lookcity">
+    <%= form_tag event_spaces_path, method: :get do %>
+    <%= text_field_tag :city, params[:city], placeholder: "Look for city" %>
+    <%= submit_tag "Search" %>
+  </div>
   <% end %>
 
 
