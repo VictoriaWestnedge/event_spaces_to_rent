@@ -32,9 +32,12 @@
 
 
 .btn-primary{
+  background: #538a87;
+  color: white;
   margin-top: 10px ;
+  border-color: rgb(254, 254, 254);
 }
 .btn-primary:hover{
-  background: rgb(3, 60, 145);
+  background:rgb(106, 106, 106);
   transition: 1s;
 }

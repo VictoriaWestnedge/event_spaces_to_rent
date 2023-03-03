@@ -3,37 +3,41 @@
 <div class="mt-3">
 
     <h2>Your Reservations</h2>
-
-    <% @bookings.each do |booking| %>
-     <div class="card_booking mt-4">
-      <%= cl_image_tag booking.event_space.photo.key %>
-        <div class="card_booking-infos">
-            <h4><%= booking.event_space.name %></h4>
-            <p><%= booking.event_space.city %></p>
-            <p> From <%= booking.start_date %> To: <%= booking.end_date %></p>
-            <%= link_to("More information", booking_path(booking), class: "btn-success") %>
+    <div class="group_card">
+      <% @bookings.each do |booking| %>
+      <div class="card_booking mt-4">
+        <%= cl_image_tag booking.event_space.photo.key %>
+          <div class="card_booking-infos">
+              <h4><%= booking.event_space.name %></h4>
+              <p><%= booking.event_space.city %></p>
+              <p> From <%= booking.start_date %> To: <%= booking.end_date %></p>
+              <%= link_to("More information", booking_path(booking), class: "btn-success") %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
 <br>
     <h2>Reservations for your listed Venues</h2>
-    <% @my_rents.each do |space| %>
-      <% space.bookings.each do |rent| %>
-      <div class=“card_booking”>
-        <br>
-        <ul>
-          <li>Start Date <%= rent.start_date %></li>
-          <li>End Date <%= rent.end_date  %></li>
-          <li>Number of Hours <%= rent.qty_hour %></li>
-          <li>Total Cost <%= rent.total_cost %> USD</li>
-          <li>User <%= rent.user.email %></li>
-        </ul>
-        <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
-        <br>
+      <div class="group_card">
+      <% @my_rents.each do |space| %>
+        <% space.bookings.each do |rent| %>
+          <div class="card_booking2 mt-5">
+            <br>
+            <ul>
+              <li>Start Date <%= rent.start_date %></li>
+              <li>End Date <%= rent.end_date  %></li>
+              <li>Number of Hours <%= rent.qty_hour %></li>
+              <li>Total Cost <%= rent.total_cost %> USD</li>
+              <li>User <%= rent.user.email %></li>
+            </ul>
+            <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
+            <br>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
   </div>
 </div>
-  </div>
+</div>
 </div>
