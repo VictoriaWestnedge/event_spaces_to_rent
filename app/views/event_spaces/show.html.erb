@@ -1,7 +1,11 @@
 <div class="container">
   <h2>Available Venues </h2>
   <div class="card">
-    <%= cl_image_tag @event_space.photo.key, height: 300, width: 400, crop: :fill %>
+     <% if @event_space.photo.key != nil %>
+          <%= cl_image_tag @event_space.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <%=image_tag @event_space.image_url %>
+          <% end %>
      <div class="card-infos">
     <h5><strong><%= @event_space.name.titleize %></strong></h5>
     <p><%= @event_space.adress.titleize %></p>
@@ -28,7 +32,11 @@
   </div>
   <% @my_spaces.each do |space| %>
     <div class="card mt-2 mb-4">
-      <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if space.photo.key != nil %>
+          <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <%=image_tag space.image_url %>
+          <% end %>
       <div class="card-infos">
         <div>
           <h5><strong><%= space.name %></strong></h5>
