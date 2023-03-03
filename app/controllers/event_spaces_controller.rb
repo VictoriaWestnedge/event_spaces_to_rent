@@ -39,7 +39,7 @@ class EventSpacesController < ApplicationController
     @event_space = EventSpace.new(event_space_params)
     @event_space.user_id = current_user.id
     if @event_space.save
-      redirect_to event_space_path
+      redirect_to event_spaces_path
     else
       render :new
     end
@@ -52,7 +52,7 @@ class EventSpacesController < ApplicationController
   def update
     @event_space = EventSpace.find(params[:id])
     @event_space.update(event_space_params)
-    redirect_to event_space_path
+    redirect_to event_spaces_path
   end
 
   private
