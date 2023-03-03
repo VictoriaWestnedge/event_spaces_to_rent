@@ -1,16 +1,17 @@
 <div class="container">
   <h2>Available Venues </h2>
   <div class="card">
-    <p>Event Space Name: <%= @event_space.name %></p>
-    <p>Address: <%= @event_space.adress %></p>
-    <p>City: <%= @event_space.city %></p>
-    <p>Description: <%= @event_space.description %></p>
-    <p>Price Per Hour: <%= @event_space.price_per_hour %> USD</p>
-    <p>Minimum Hours: <%= @event_space.min_hour %></p>
-    <br>
+    <%= cl_image_tag @event_space.photo.key, height: 300, width: 400, crop: :fill %>
+     <div class="card-infos">
+    <h5><strong><%= @event_space.name.titleize %></strong></h5>
+    <p><%= @event_space.adress.titleize %></p>
+    <p><%= @event_space.city.titleize %></p>
+    <p><%= @event_space.description.capitalize %></p>
+    <p><%= @event_space.price_per_hour %> USD per hour</p>
+    <p><%= @event_space.min_hour %> hours minimum stay</p>
     <%= link_to "Book here", new_event_space_booking_path(@event_space), class: "btn-success" %>
-    <br>
     <%= link_to "Back", root_path, class: "btn-back" %>
+ </div>
   </div>
   <br>
   <div
@@ -26,12 +27,12 @@
     <%= link_to("Add new venue", new_event_space_path, class: "btn-success") %>
   </div>
   <% @my_spaces.each do |space| %>
-    <div class="card">
+    <div class="card mt-2 mb-4">
       <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-infos">
         <div>
-          <p>Name: <%= space.name %></p>
-          <p>Address: <%= space.adress  %></p>
+          <h5><strong><%= space.name %></strong></h5>
+          <p><%= space.adress  %></p>
           <p>Price per hour: <%= space.price_per_hour %> USD</p>
         </div>
       <%= link_to("Edit your venue", edit_event_space_path(space), class: "btn-success") %>
