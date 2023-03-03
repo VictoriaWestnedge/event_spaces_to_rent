@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.hayesmansion.com/site/assets/files/4852/hayes_mansion_wedding.1800x1100.jpeg)">
       Weddings
@@ -15,7 +16,7 @@
 
 
   <br>
-  <h2>Look at our Venues</h2>
+  <h2>Search for Venues</h2>
   <br>
   <div class="lookcity">
     <%= form_tag event_spaces_path, method: :get do %>
@@ -23,25 +24,24 @@
       params[:query],
       class: "form-control",
       placeholder: "Look for the city, the name or the description." %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn-success mt-3" %>
     <% end %>
   </div>
 
-
-  <% @event_spaces.each do |e|%>
-    <br>
-      <ol>
-        <div class="card">
-          <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-infos">
-            <h5><%= e.name.titleize %></h5>
-            <p><%= e.city.titleize %></p>
-            <p><%= e.description.capitalize %></p>
-            <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
-            <%= link_to "More Details", event_space_path(e), class: "btn-success" %>
-          </div>
-        </div>
-      </ol>
-    <br>
-  <% end %>
+  <div class="row mt-5">
+    <% @event_spaces.each do |e|%>
+      <div class="col-lg-3 col-md-3 col d-flex justify-content-center">
+          <div class="card-venues mb-5 justify-content-center">
+              <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-infos">
+                <h5><%= e.name.titleize %></h5>
+                <p><%= e.city.titleize %></p>
+                <p><%= e.description.capitalize %></p>
+                <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
+                <%= link_to "More Details", event_space_path(e), class: "btn-success" %>
+              </div>
+            </div>
+      </div>
+    <% end %>
+  </div>
 </div>

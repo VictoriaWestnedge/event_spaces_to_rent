@@ -1,18 +1,21 @@
 <div class="container">
-<div class="row">
+<div class="row mt-3">
     <h1>Search results</h1>
     <% if @event_spaces.any? %>
       <ul>
         <% @event_spaces.each do |e| %>
           <div class="card">
-            <p>Event Space Name: <%= e.name.titleize %></p>
-            <p>Address: <%= e.adress.titleize %></p>
-            <p>City: <%= e.city.titleize %></p>
-            <p>Description: <%= e.description.capitalize %></p>
-            <p>Price Per Hour: <%= e.price_per_hour %></p>
-            <p>Minimum Of Time: <%= e.min_hour %></p>
+           <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-infos">
+            <h5><strong><%= e.name.titleize %></strong></h5>
+            <p><%= e.adress.titleize %></p>
+            <p><%= e.city.titleize %></p>
+            <p><%= e.description.capitalize %></p>
+            <p><%= e.price_per_hour %> USD per hour</p>
+            <p><%= e.min_hour %> hours minimum stay</p>
             <%= link_to "Book here", new_event_space_booking_path(e), class: "btn-success" %>
             </div>
+             </div>
             <br>
         <% end %>
       </ul>
