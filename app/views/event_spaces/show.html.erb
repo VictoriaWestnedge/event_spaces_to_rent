@@ -10,9 +10,17 @@
 <br>
 <%= link_to "Book here", new_event_space_booking_path(@event_space), class: "btn-success" %>
 <br>
+
 <%= link_to "Back", root_path, class: "btn-back" %>
 </div>
+<br>
+<div
+  style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value = "<%= @marker.to_json %>"
+  data-map-api-key-value = "<%= ENV['MAPBOX_API_KEY'] %>"
 
+></div>
 
     <br>
       <h2>My Venues for Hire</h2>
