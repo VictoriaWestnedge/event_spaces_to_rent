@@ -32,7 +32,11 @@
     <% @event_spaces.each do |e|%>
       <div class="col-lg-3 col-md-3 col d-flex justify-content-center">
           <div class="card-venues mb-5 justify-content-center">
+            <% if e.photo.key != nil %>
               <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%=image_tag e.image_url %>
+            <% end %>
               <div class="card-infos">
                 <h5><%= e.name.titleize %></h5>
                 <p><%= e.city.titleize %></p>

@@ -3,25 +3,34 @@
     <h1>Search results</h1>
     <% if @event_spaces.any? %>
       <ul>
-        <% @event_spaces.each do |e| %>
-          <div class="card">
-           <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-infos">
-            <h5><strong><%= e.name.titleize %></strong></h5>
-            <p><%= e.adress.titleize %></p>
-            <p><%= e.city.titleize %></p>
-            <p><%= e.description.capitalize %></p>
-            <p><%= e.price_per_hour %> USD per hour</p>
-            <p><%= e.min_hour %> hours minimum stay</p>
-            <%= link_to "Book here", new_event_space_booking_path(e), class: "btn-success" %>
+        <div class="row mt-5">
+    <% @event_spaces.each do |e|%>
+      <div class="col-lg-3 col-md-3 col d-flex justify-content-center">
+          <div class="card-venues mb-5 justify-content-center">
+            <% if e.photo.key != nil %>
+              <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%=image_tag e.image_url %>
+            <% end %>
+              <div class="card-infos">
+                <h5><%= e.name.titleize %></h5>
+                <p><%= e.city.titleize %></p>
+                <p><%= e.description.capitalize %></p>
+                <p>Price Per Hour: <%= e.price_per_hour %> USD </p>
+                <%= link_to "More Details", event_space_path(e), class: "btn-success" %>
+              </div>
             </div>
-             </div>
-            <br>
-        <% end %>
+      </div>
+    <% end %>
+  </div>
+
       </ul>
     <% else %>
       <p>There are not any Spaces in this city.</p>
     <% end %>
+
+
+
 
 
     <br>
