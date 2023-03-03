@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users
   root to: "pages#home"
 
@@ -10,5 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: [:create]
+  end
 
 end
