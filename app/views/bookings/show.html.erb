@@ -13,6 +13,7 @@
     <p>Total Stay: <%= @booking.qty_hour  %> hours</p>
     <p>Total Cost: <%= @booking.total_cost %> USD</p>
     <%= link_to("Edit your booking", edit_booking_path, class: "btn-success") %>
+    <%= link_to("Chat Room", chatroom_path(1), class: "btn-success") %>
     <%= link_to "Cancel your booking", booking_path(@booking), class: "btn-back", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
   </div>
 </div>
