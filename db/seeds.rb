@@ -12,9 +12,9 @@ file1 = URI.open("https://weddingsbythebreakers.com/wp-content/uploads/2017/12/0
 file2 = URI.open("https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600__340.jpg")
 
   puts "Creating User"
-  user_1 = User.create!(email:"fernando@gmail.com", password:"123456")
-  user_2 = User.create!(email:"nica@gmail.com", password:"123456")
-  user_3 = User.create!(email:"victoria@gmail.com", password:"123456")
+  user_1 = User.create!(email:"fernando@gmail.com", password:"123456", nickname:"Fer")
+  user_2 = User.create!(email:"nica@gmail.com", password:"123456", nickname: "Nica")
+  user_3 = User.create!(email:"victoria@gmail.com", password:"123456", nickname: "Vicky")
 
   puts "Creating Event Space"
   event_space_1 = EventSpace.new(name:"events room traji", adress:"Av. Américo Vespucio 399, 9250000 Maipú", description:"beautiful room for wedding", price_per_hour:5, min_hour:3, user:user_1, city:"Santiago de Chile")
@@ -27,5 +27,8 @@ file2 = URI.open("https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600__
   puts "Creating Booking"
   Booking.create!(user:user_2, event_space:event_space_2, start_date:"04-april-2023", end_date:"5-april-2023", qty_hour:24, total_cost:500)
   Booking.create!(user:user_2, event_space:event_space_1, start_date:"02-june-2023", end_date:"02-june-2023", qty_hour:5, total_cost:50)
+
+  puts "Creating Chatroom"
+  Chatroom.create(name: "general")
 
   puts "Everything right"

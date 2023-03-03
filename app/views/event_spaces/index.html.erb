@@ -1,28 +1,33 @@
-<h1>Search results</h1>
-<% if @event_spaces.any? %>
-  <ul>
-    <% @event_spaces.each do |e| %>
-      <li>
-        <p>Event Space Name: <%= e.name.titleize %></p>
-        <p>Address: <%= e.adress.titleize %></p>
-        <p>City: <%= e.city.titleize %></p>
-        <p>Description: <%= e.description.capitalize %></p>
-        <p>Price Per Hour: <%= e.price_per_hour %></p>
-        <p>Minimum Of Time: <%= e.min_hour %></p>
-      </li>
-      <%= link_to "Booking", new_event_space_booking_path(e) %>
+<div class="container">
+<div class="row">
+    <h1>Search results</h1>
+    <% if @event_spaces.any? %>
+      <ul>
+        <% @event_spaces.each do |e| %>
+          <div class="card">
+            <p>Event Space Name: <%= e.name.titleize %></p>
+            <p>Address: <%= e.adress.titleize %></p>
+            <p>City: <%= e.city.titleize %></p>
+            <p>Description: <%= e.description.capitalize %></p>
+            <p>Price Per Hour: <%= e.price_per_hour %></p>
+            <p>Minimum Of Time: <%= e.min_hour %></p>
+            <%= link_to "Book here", new_event_space_booking_path(e), class: "btn-success" %>
+            </div>
+            <br>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>There are not any Spaces in this city.</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>There are not any Spaces in this city.</p>
-<% end %>
 
 
-<br>
-<div
-  style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value = '<%= @markers.to_json %>'
-  data-map-api-key-value = '<%= ENV['MAPBOX_API_KEY'] %>'
+    <br>
+    <div
+      style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value = '<%= @markers.to_json %>'
+      data-map-api-key-value = '<%= ENV['MAPBOX_API_KEY'] %>'
 
-></div>
+    ></div>
+  </div>
+</div>
