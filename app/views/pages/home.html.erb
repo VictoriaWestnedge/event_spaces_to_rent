@@ -32,7 +32,11 @@
     <br>
       <ol>
         <div class="card">
+          <% if e.photo.key != nil %>
           <%= cl_image_tag e.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <%=image_tag e.image_url %>
+          <% end %>
           <div class="card-infos">
             <h5><%= e.name.titleize %></h5>
             <p><%= e.city.titleize %></p>

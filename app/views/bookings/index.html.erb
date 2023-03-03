@@ -6,9 +6,16 @@
 
     <% @bookings.each do |booking| %>
      <div class="card_booking mt-4">
-      <%= cl_image_tag booking.event_space.photo.key %>
+
+      <% if booking.event_space.photo.key != nil %>
+          <%= cl_image_tag booking.event_space.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <%=image_tag booking.event_space.image_url %>
+          <% end %>
+
+
         <div class="card_booking-infos">
-            <h4><%= booking.event_space.name %></h4>
+            <h4><%= booking.event_space.name.titleize %></h4>
             <p><%= booking.event_space.city %></p>
             <p> From <%= booking.start_date %> To: <%= booking.end_date %></p>
             <%= link_to("More information", booking_path(booking), class: "btn-success") %>
@@ -27,7 +34,7 @@
           <li>End Date <%= rent.end_date  %></li>
           <li>Number of Hours <%= rent.qty_hour %></li>
           <li>Total Cost <%= rent.total_cost %> USD</li>
-          <li>User <%= rent.user.email %></li>
+          <li>User <%= rent.user.nickname %></li>
         </ul>
         <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
         <br>
