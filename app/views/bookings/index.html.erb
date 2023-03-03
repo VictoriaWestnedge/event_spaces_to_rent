@@ -25,11 +25,11 @@
           <div class="card_booking2 mt-5">
             <br>
             <ul>
-              <li>Start Date <%= rent.start_date %></li>
-              <li>End Date <%= rent.end_date  %></li>
-              <li>Number of Hours <%= rent.qty_hour %></li>
-              <li>Total Cost <%= rent.total_cost %> USD</li>
-              <li>User <%= rent.user.email %></li>
+              <p>Start Date <%= rent.start_date %></p>
+              <p>End Date <%= rent.end_date  %></p>
+              <p>Number of Hours <%= rent.qty_hour %></p>
+              <p>Total Cost <%= rent.total_cost %> USD</p>
+              <p>User <%= rent.user.email %></p>
             </ul>
             <%= link_to("More information", booking_path(rent), class: "btn btn-primary") %>
             <br>
