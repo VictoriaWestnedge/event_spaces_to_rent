@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :bookings, through: :space_event
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :messages
 end
