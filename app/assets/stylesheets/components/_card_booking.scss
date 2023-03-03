@@ -3,9 +3,26 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px;
+  margin-left: 17px;
   width: 800px;
   border-radius: 10px;
   align-items: center;
+}
+
+.card_booking2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 15px;
+  width: 270px;
+  align-items: center;
+}
+
+.group_card{
+  display: flex;
+  justify-content: space-around;
 }
 
 .card_booking > img {
@@ -16,11 +33,8 @@
 }
 
 .card_booking .card_booking-infos {
-  // display: flex;
   padding: 16px;
   justify-content: space-between;
-  // align-items: flex-end;
-  // position: relative;
 }
 
 .card_booking-infos h4 {
